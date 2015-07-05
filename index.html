@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html ng-app = "gdApp">
+<head lang = "en">
+    <meta charset = "UTF-8">
+    <title>GD SITE 2015</title>
+    <meta name = "viewport" content = "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link href = "http://fonts.googleapis.com/css?family=Ubuntu+Condensed|Open+Sans:400,300|Raleway|Cinzel"
+          rel = "stylesheet" type = "text/css">
+    <link rel = "stylesheet" href = "css/app.css"/>
+    <style>
+        h1 {
+            font-family: "Open Sans";
+        }
+        .navbar-brand {
+            font-family: "Raleway";
+        }
+
+        p {
+            font-family: "Open Sans";
+            font-size: medium;
+            margin-top: 10px;
+        }
+
+        .container-fluid {
+            height: auto;
+            margin: 20px 20px 10px 20px;
+            padding-bottom: 100px;
+            background-color: #cccccc;
+            border: solid 1px #444444;
+            border-radius: 10px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<!--Navigation: Index-->
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <a ui-sref="home" class = "navbar-brand">R.LLOYD GONZALES</a>
+        <div class="navbar-header">
+            <button type="button"
+                    class="navbar-toggle"
+                    data-toggle="collapse"
+                    data-target = ".navbar-collapse">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a ui-sref="projectsList" class = "navbar-brand">PROJECTS</a>
+                </li>
+                <li>
+                    <a ui-sref="myInfo" class = "navbar-brand">MY INFO</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--Content Area-->
+<div class = "container">
+    <div class = "row">
+        <div class = "col-sm-12">
+            <h1>Test Title</h1>
+            <p>
+                Odee and John poot poot are the cutest and pinaka pilyong bata.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!--Partial Views -->
+<div class = "container">
+    <div ui-view></div>
+</div>
+
+<!----------| LIBRARY SCRIPTS |---------->
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.2/angular.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.2/angular-resource.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.2/angular-mocks.js"></script>
+<script src = "js/angular-ui-router.min.js"></script>
+
+<!----------| APPLICATION SCRIPT |---------->
+<script src = "app/app.js"></script>
+
+<!----------| PRODUCT CONTROLLER SCRIPT |---------->
+<script src = "app/projects/projects.list.controller.js"></script>
+<script src = "app/projects/projects.detail.controller.js"></script>
+
+<!----------| SERVICES SCRIPTS |---------->
+<script src = "common/services/project.resources.js"></script>
+<script src = "common/services/project.resource.mock.js"></script>
+
+</body>
+</html>

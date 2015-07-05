@@ -1,0 +1,64 @@
+body {
+    background-color: #c5e1a5;
+}
+
+form {
+    background-color: #A4C8E8;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px #ccc;
+    color: #404040;
+    font-size: 16px;
+    padding: 30px 20px;
+    /*border: solid 1px deepskyblue;*/
+}
+
+h1{
+    color: #c53929;
+}
+
+form div{
+    border: solid 1px orange;
+}
+
+.help-block{
+    color: green;
+}
+.has-error{
+    color: red;
+}
+
+form legend {
+    color: $404040;
+    font-size: 42px;
+    /*font-family: 'Inconsolata', 'Consolas', 'Source Code Pro', 'Monaco', 'Menlo', monospace;*/
+    font-weight: normal;
+    line-height: 1;
+    text-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
+    /*border: solid 1px greenyellow;*/
+}
+
+.wizard a {
+    background: #efefef;
+    display: inline-block;
+    margin-right: 5px;
+    min-width: 150px;
+    outline: none;
+    padding: 10px 40px 10px;
+    position: relative;
+    text-decoration: none;
+}
+
+.wizard .active {
+    background: #23719d;
+    color: #fff;
+}
+
+table {
+    margin-left: 20px;
+    /*padding-left: 20px;*/
+}
+table tbody tr td {
+    border: solid 1px #ddd;
+    /*border: none;*/
+    /*background-color: #c53929;*/
+}

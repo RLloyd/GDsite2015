@@ -1,0 +1,56 @@
+<h1>Project List View</h1>
+<!--Container template for projects.list.view.html-->
+
+<div class = "panel panel-primary">
+    <div class = "panel-heading tH1">
+        Projects List
+    </div>
+    <!-- Projects Template -->
+    <table class = "table table-striped table-hover">
+        <!--ng-controller = "ProjectListCtrl as vm">-->
+        <thead>
+        <tr class = "success tH1">
+            <td>
+                <button type = "button" class = "btn btn-primary"
+                        ng-click = "vm.toggleImage()">
+                    {{vm.showImage ? "Hide " : "Show "}}Image
+                </button>
+            </td>
+            <td>Projects</td>
+            <td>Code</td>
+            <td>Available</td>
+            <td>Price</td>
+            <td>Thingy</td>
+            <td>Action</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat = "project in vm.projects">
+            <td>
+                <!--ng-show still fetch image on the background, ng-if doesn't-->
+                <img ng-if = "vm.showImage"
+                     ng-src = "{{project.imageUrl}}"
+                     style = "width:250px; margin:0px;"
+                     title = "{{project.projectName}}"/>
+            </td>
+            <td><a ui-sref="projectDetail({projectId: project.projectId})">
+                {{project.projectName}}</a>
+            </td>
+            <td>{{project.projectCode}}</td>
+            <td>{{project.releaseDate | date}}</td>
+            <td>{{project.price | currency}}</td>
+            <td>Things</td>
+
+            <!--Edit Button-->
+            <td>
+                <!--<a ui-sref = "projectEdit({projectId: project.projectId})"-->
+                <a ui-sref = "projectEdit.info({projectId: project.projectId})"
+                   class = "btn btn-primary">
+                    Edit
+                </a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
