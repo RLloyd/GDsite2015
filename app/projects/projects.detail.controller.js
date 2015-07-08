@@ -39,37 +39,16 @@
      }
 
      };*/
-    angular.module("gdApp").controller("ProjectDetailCtrl", ["project", ProjectDetailCtrl]); //"projectService",
+    angular
+        .module("gdApp")
+        .controller("ProjectDetailCtrl", ["project", ProjectDetailCtrl]); //"projectService",
     //angular.module("gdApp").controller("ProjectDetailCtrl", ["$scope", ProjectDetailCtrl]);
     //app.controller("ProjectDetailCtrl", ProjectDetailCtrl);
     console.log("Project Detail Controller");
-    function escapeRegExp(str) {
-        //return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-        var arr = [];
-        var tmp = str.split('r');
-        console.log("tmp.length: ", tmp.length);
-        for (var i = 0; i < tmp.length; i++) {
-            console.log("tmp.length: ", tmp.length);
-            arr.push(tmp[i] //.replace(/\,/'').split(',. '));
-            , console.log("arr: ", arr, i));
-            var tS = str.replace(arr, "x ");
-            vm.projects.tagList = tS; //str;
-            console.log("tS: ", tS);
-            var tS2 = str.replace('", ', ', ');
-            vm.projects.tagList = tS2; //str;
-            console.log("tS2: ", tS2);
-        }
-        /*console.log("value: ", value);
-         return (!value) ? 'x' : value.replace(/r/g, 'xx');*/
-        /*return function (value) {
-         console.log("value: ", value);
-         return (!value) ? 'x' : value.replace(/r/g, 'xx');
-
-         };*/
-    }
     function ProjectDetailCtrl(project) {
         var vm = this;
         vm.projects = project;
+        //console.log("project: ",project);
         //console.log("vm.projects: ", vm.projects);
         //console.log("project: ", project);
         /*Hard coded data for development testing only*/
@@ -86,19 +65,76 @@
          "imageUrl": "images/johnEating.jpg"
          };*/
         /*End hard coded*/
+        /*	function escapeRegExp(str) {
+                //return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+                var arr = [];
+                var tmp = str.split(',');
+                //var tmp = str.split('a');
+                console.log("tmp.lengthO: ", tmp.length, " | str: ", str, " | tmp: ", tmp);
+                /!*var tS = str.replace(/\a/, "x ");
+                console.log("tS: ", tS)*!/
+    
+                //str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+                //console.log("str: ", str)
+    
+                console.log("tmp.lengthI: ", tmp.length);
+                for (var i = 0; i < tmp.length; i++) {
+                    //console.log("tmp.lengthI: ", tmp.length);
+                    //arr.push(tmp[i].replace(arr, 'x')//.replace(/\,/'').split(',. '));
+                    //arr.push(tmp[i].replace(/\a/).split('o'));
+                    arr.push(tmp[i];//.replace(/\a|\r/g, '').split(', '));
+                    console.log("arr: ", arr[i], i);
+                    var tS = str.replace(arr[i], "x ");
+                    console.log("tS: ", tS, " ---------------------", i)
+    
+                    /!*var tS = str.replace(arr, "x ");
+                    vm.projects.tagList = tS;//str;
+                    console.log("tS: ", tS);
+    
+                    var tS2 = str.replace('", ', ', ');
+                    vm.projects.tagList = tS2;//str;
+                    console.log("tS2: ", tS2);*!/
+    
+                    vm.projects.tagList = tS;
+    
+                }
+    
+    
+                /!*console.log("value: ", value);
+                 return (!value) ? 'x' : value.replace(/r/g, 'xx');*!/
+    
+                /!*return function (value) {
+                 console.log("value: ", value);
+                 return (!value) ? 'x' : value.replace(/r/g, 'xx');
+    
+                 };*!/
+            }*/
+        function splitString(stringToSplit) {
+            var arrayOfStrings = stringToSplit.split(',');
+            /*
+            console.log("arrayOfStrings: ", arrayOfStrings);
+            console.log("arrayOfStrings.join(', '): ", arrayOfStrings.join(', '));
+
+            console.log('The original string is: "' + stringToSplit + '"');
+            //console.log('The separator is: "' + separator + '"');
+            console.log('The array has ' + arrayOfStrings.length + ' elements: ' + arrayOfStrings.join(', '));
+*/
+            vm.projects.tagList = arrayOfStrings.join(', ');
+        }
+        //var monthString = 'Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec';
+        /*var space = ' ';
+        var comma = ',';*/
         vm.title = "Project Detail: " + vm.projects.projectName;
-        console.log("vm.projects.projectName: ", vm.projects.projectName);
+        //console.log("vm.projects.projectName: ", vm.projects.projectName);
         //vm.marginPercent = projectService.calculateMarginPercent(vm.projects.price, vm.projects.cost);
-        console.log("vm.projects.tags: ", vm.projects.tags);
+        //console.log("vm.projects.tags: ", vm.projects.tags);
         console.log("•|--------------------------->");
         if (vm.projects.tags) {
             var tempStrings = vm.projects.tags.toString();
             console.log("tempStrings: ", tempStrings);
-            /*var re = new RegExp(",*");
-             console.log("re: ",re);*/
-            escapeRegExp(tempStrings);
-            console.log("tempStrings: ", tempStrings);
-            vm.projects.tagList = tempStrings;
+            var monthString = tempStrings;
+            splitString(monthString);
+            console.log("monthString: ", monthString);
         }
     }
 }());
